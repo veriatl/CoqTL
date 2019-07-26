@@ -10,4 +10,4 @@ Require Import examples.Graph2Tree.Graph2Tree.
 Require Import examples.Graph2Tree.GraphModel.
 Require Import examples.Graph2Tree.GraphModel2.
 Require Import core.utils.tTop.
-Compute execute Graph2Tree testGraphModel2. 
+Time Compute execute Graph2Tree testGraphModel2. 
