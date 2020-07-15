@@ -87,9 +87,21 @@ Proof.
               ++  rewrite <- H1 in H2.
                   simpl in H2.
                   destruct H2.
-                  +++ admit.
+                  +++ clear H1.
+                      rewrite <- H2. simpl.
+                      specialize (Hpre c).
+                      (* TODO lemma: In sp allTuples -> Incl sp allmodelElem *)
+                      assert (incl [c] (allModelElements cm)).
+                      { rewrite <- c_ca in H0. 
+                        unfold allTuples in H0.
+                        apply tuples_up_to_n_incl with (n:=(maxArity Class2Relational)). assumption.
+                      }
+                      unfold incl in H1.
+                      specialize (H1 c).
+                      simpl in H1.
+                      crush.
                   +++ crush.
               ++  crush.
             + crush.
         --- simpl in H1. inversion H1.
-Admitted.  
+Qed.  
