@@ -104,7 +104,7 @@ Class TransformationEngineTrace (t: TransformationEngine) :=
             In tl ((fun o => optionToList (traceElementOnPattern o sm sp iter)) o));
 
     tr_traceElementOnPattern_leaf:
-      forall (o: OutputPatternElement) (sm : SourceModel) (sp : list SourceModelElement) (iter: nat) (o: OutputPatternElement) (tl : TraceLink),
+      forall (o: OutputPatternElement) (sm : SourceModel) (sp : list SourceModelElement) (iter: nat) (tl : TraceLink),
         Some tl = (traceElementOnPattern o sm sp iter) <->
         (exists (e: TargetModelElement),
            Some e = (instantiateElementOnPattern o sm sp iter) /\
